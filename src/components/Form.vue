@@ -108,6 +108,9 @@ export default {
   },
 
   computed: {
+    /**
+     * Свойство для обработки свойства товара  
+     */
     modelNumber: {
       get() {
         return this.indicatorChange ? this.product.productPrice : this.product.productPrice.toLocaleString();
@@ -121,6 +124,9 @@ export default {
       },
     },
 
+    /**
+     * Свойство для проверки на наличие ошибок 
+     */
     isValid() {
       return Object.values(this.product).some(item => item == false);
     },

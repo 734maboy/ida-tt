@@ -40,6 +40,10 @@ export default {
   }),
 
   methods: {
+    /**
+     * Метод для имитации 
+     * события removeItem (удаление товара)
+     */
     removeItem() {
       this.$emit('removeItem', this.product.id);
     }

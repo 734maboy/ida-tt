@@ -24,6 +24,9 @@ export default {
   },
 
   methods: {
+    /**
+     * Удаление товара по ID
+     */
     removeItem(id) {
       console.log(id);
       this.items.forEach((item, index) => {

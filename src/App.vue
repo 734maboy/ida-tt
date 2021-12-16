@@ -1,28 +1,57 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Header
+      @sorting="sortItems"
+    />
+    <Form
+      @addproduct="addProduct"
+    />
+    <Content 
+      :items="products"
+      :sorting="sortValue"
+      />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from './components/Header.vue';
+import Form from './components/Form.vue';
+import Content from './components/Content.vue';
 
 export default {
   name: 'App',
+
   components: {
-    HelloWorld
-  }
+    Content,
+    Header,
+    Form,
+  },
+
+  data: () => ({
+    products: [],
+    sorting: '',
+  }),
+
+  methods: {
+    addProduct(item) {
+      this.products.push(item);
+    },
+
+    sortItems(item) {
+      this.sorting = item;
+    },
+
+    
+  },
+
+  computed: {
+    sortValue() {
+      return this.sorting;
+    }
+  },
 }
 </script>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style  lang="scss">
+  @import "./style/main.scss";
 </style>
